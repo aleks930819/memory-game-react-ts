@@ -1,10 +1,26 @@
 import CardFlipped from '../CardFlipped/CardFlipped';
 import CardFront from '../CardFront/CardFront';
 
-const Card = () => {
-  const isClicked = true;
+interface CardProps {
+  key: number;
+  card: {
+    id: number;
+    name: string;
+    image: string;
+    found: boolean;
+  };
+}
 
-  return isClicked ? <CardFlipped /> : <CardFront />;
+const Card = ({ key, card }: CardProps) => {
+  const isClicked = true;
+  const { id, name, image, found } = card;
+  console.log(card);
+
+  return isClicked ? (
+    <CardFlipped image={image} key={key} />
+  ) : (
+    <CardFront key={key} />
+  );
 };
 
 export default Card;

@@ -1,4 +1,13 @@
-interface Card {
+import Thor from './assets/thor.png';
+import Ironman from './assets/ironman.png';
+import Hawkeye from './assets/hawkeye.png';
+import Hulk from './assets/hulk.png';
+import Blackwidow from './assets/blackwidow.png';
+import Spiderman from './assets/spiderman.png';
+import Loki from './assets/loki.png';
+import CapitanAmerica from './assets/capitan-america.png';
+
+export interface Card {
   id: number;
   name: string;
   image: string;
@@ -10,112 +19,112 @@ const cards: Card[] = [
   {
     id: 1,
     name: 'thor',
-    image: './assets/thor.png',
+    image: Thor,
     flipped: false,
     found: false,
   },
   {
     id: 2,
     name: 'thor',
-    image: './assets/thor.png',
+    image: Thor,
     flipped: false,
     found: false,
   },
   {
     id: 3,
     name: 'iron-man',
-    image: './assets/ironman.png',
+    image: Ironman,
     flipped: false,
     found: false,
   },
   {
     id: 4,
     name: 'iron-man',
-    image: './assets/ironman.png',
+    image: Ironman,
     flipped: false,
     found: false,
   },
   {
     id: 5,
     name: 'hawkeye',
-    image: './assets/hawkeye.png',
+    image: Hawkeye,
     flipped: false,
     found: false,
   },
   {
     id: 6,
     name: 'hawkeye',
-    image: './assets/hawkeye.png',
+    image: Hawkeye,
     flipped: false,
     found: false,
   },
   {
     id: 7,
     name: 'hulk',
-    image: './assets/hulk.png',
+    image: Hulk,
     flipped: false,
     found: false,
   },
   {
     id: 8,
     name: 'hulk',
-    image: './assets/hulk.png',
+    image: Hulk,
     flipped: false,
     found: false,
   },
   {
     id: 9,
     name: 'blackwidow',
-    image: './assets/blackwidow.png',
+    image: Blackwidow,
     flipped: false,
     found: false,
   },
   {
     id: 10,
     name: 'blackwidow',
-    image: './assets/blackwidow.png',
+    image: Blackwidow,
     flipped: false,
     found: false,
   },
   {
     id: 11,
     name: 'spiderman',
-    image: './assets/spiderman.png',
+    image: Spiderman,
     flipped: false,
     found: false,
   },
   {
     id: 12,
     name: 'spiderman',
-    image: './assets/spiderman.png',
+    image: Spiderman,
     flipped: false,
     found: false,
   },
   {
     id: 13,
     name: 'capitan-america',
-    image: './assets/capitan-america.png',
+    image: CapitanAmerica,
     flipped: false,
     found: false,
   },
   {
     id: 14,
     name: 'capitan-america',
-    image: './assets/capitan-america.png',
+    image: CapitanAmerica,
     flipped: false,
     found: false,
   },
   {
     id: 15,
     name: 'loki',
-    image: './assets/loki.png',
+    image: Loki,
     flipped: false,
     found: false,
   },
   {
     id: 16,
     name: 'loki',
-    image: './assets/loki.png',
+    image: Loki,
     flipped: false,
     found: false,
   },
