@@ -3,7 +3,7 @@ import styles from './Header.module.css';
 const Header = () => {
   return (
     <header className={styles.header}>
-      <h1>Marvel Memory Game</h1>
+      <h1>Marvel Heroes Memory Game</h1>
     </header>
   );
 };

@@ -14,7 +14,6 @@ interface CardProps {
 const Card = ({ key, card }: CardProps) => {
   const isClicked = true;
   const { id, name, image, found } = card;
-  console.log(card);
 
   return isClicked ? (
     <CardFlipped image={image} key={key} />
