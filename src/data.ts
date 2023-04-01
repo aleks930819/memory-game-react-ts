@@ -91,6 +91,34 @@ const cards: Card[] = [
     flipped: false,
     found: false,
   },
+  {
+    id: 13,
+    name: 'capitan-america',
+    image: './assets/capitan-america.png',
+    flipped: false,
+    found: false,
+  },
+  {
+    id: 14,
+    name: 'capitan-america',
+    image: './assets/capitan-america.png',
+    flipped: false,
+    found: false,
+  },
+  {
+    id: 15,
+    name: 'loki',
+    image: './assets/loki.png',
+    flipped: false,
+    found: false,
+  },
+  {
+    id: 16,
+    name: 'loki',
+    image: './assets/loki.png',
+    flipped: false,
+    found: false,
+  },
 ];
 
 export default cards;
