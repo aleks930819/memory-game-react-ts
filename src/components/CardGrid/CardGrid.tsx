@@ -49,7 +49,7 @@ const CardGrid: React.FC = () => {
           );
         }
         resetTurn();
-      }, 500);
+      }, 600);
     }
   }, [choiceOne, choiceTwo, cardsArray]);
 

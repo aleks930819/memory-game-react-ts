@@ -40,7 +40,7 @@ const Card: React.FC<CardProps> = ({
           <img className={styles.front} src={image} alt={name} />
         </div>
         {/* BACK */}
-        <div>
+        <div className={isClicked || found ? styles.flipped : ''}>
           <img
             className={styles.back}
             src={Logo}
