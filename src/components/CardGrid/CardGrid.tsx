@@ -49,7 +49,7 @@ const CardGrid: React.FC = () => {
           );
         }
         resetTurn();
-      }, 1000);
+      }, 500);
     }
   }, [choiceOne, choiceTwo, cardsArray]);
 
@@ -58,11 +58,7 @@ const CardGrid: React.FC = () => {
   }, [setShowModal, isAllCardsFound]);
 
   const handleChoice = (name: string) => {
-    if (!choiceOne) {
-      setChoiceOne(name);
-    } else if (!choiceTwo) {
-      setChoiceTwo(name);
-    }
+    choiceOne == null ? setChoiceOne(name) : setChoiceTwo(name);
   };
 
   return (
