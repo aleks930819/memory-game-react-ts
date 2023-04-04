@@ -58,7 +58,7 @@ const CardGrid: React.FC = () => {
         resetTurn();
       }, 600);
     }
-  }, [choiceOne, choiceTwo, cardsArray]);
+  }, [choiceOne, choiceTwo, cardsArray, resetTurn]);
 
   useEffect(() => {
     isAllCardsFound ? setShowModal(true) : setShowModal(false);
