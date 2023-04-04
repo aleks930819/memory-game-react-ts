@@ -7,8 +7,8 @@ import { CardInterface } from '../../shared/interfaces';
 import cards from '../../data';
 
 import Card from '../Card/Card';
-import CardFooter from '../CardFooter/CardFooter';
 import Modal from '../Modal/Modal';
+import Turns from '../Turns/Turns';
 
 const CardGrid: React.FC = () => {
   const shuffledCards = cards.sort(() => Math.random() - 0.5);
@@ -72,7 +72,7 @@ const CardGrid: React.FC = () => {
           choiceTwo={choiceTwo}
         />
       ))}
-      <CardFooter turns={turns} />
+      <Turns turns={turns} />
       {showModal && <Modal turns={turns} resetGame={resetGame} />}
     </div>
   );
