@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import Container from './components/Container/Container';
+import CardGrid from './components/CardGrid/CardGrid';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="wrapper">
       <Header />
-      <Container />
+      <CardGrid />
     </div>
   );
-}
+};
 
 export default App;

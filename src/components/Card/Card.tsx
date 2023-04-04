@@ -1,24 +1,55 @@
-import CardFlipped from '../CardFlipped/CardFlipped';
-import CardFront from '../CardFront/CardFront';
+import React, { useEffect, useState } from 'react';
+
+import styles from './Card.module.css';
+
+import Logo from '../../assets/logo.jpg';
+import { CardInterface } from '../../shared/interfaces';
 
 interface CardProps {
-  key: number;
-  card: {
-    id: number;
-    name: string;
-    image: string;
-    found: boolean;
-  };
+  card: CardInterface;
+  handleChoice: (name: string) => void;
+  choiceOne: string | null;
+  choiceTwo: string | null;
 }
 
-const Card = ({ key, card }: CardProps) => {
-  const isClicked = true;
-  const { id, name, image, found } = card;
+const Card: React.FC<CardProps> = ({
+  card,
+  handleChoice,
+  choiceOne,
+  choiceTwo,
+}) => {
+  const { name, image, found } = card;
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
-  return isClicked ? (
-    <CardFlipped image={image} key={key} />
-  ) : (
-    <CardFront key={key} />
+  const handleClick = () => {
+    handleChoice(name);
+    setIsClicked(true);
+  };
+
+  useEffect(() => {
+    if (!choiceOne && !choiceTwo) {
+      setIsClicked(false);
+    }
+  }, [setIsClicked, choiceOne, choiceTwo]);
+
+  return (
+    <div className={styles.card}>
+      <div className={isClicked || found ? styles.flipped : ''}>
+        {/* FRONT */}
+        <div>
+          <img className={styles.front} src={image} alt={name} />
+        </div>
+        {/* BACK */}
+        <div>
+          <img
+            className={styles.back}
+            src={Logo}
+            alt="logo"
+            onClick={handleClick}
+          />
+        </div>
+      </div>
+    </div>
   );
 };
 
