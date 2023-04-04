@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import styles from './CardGrid.module.css';
 
@@ -21,19 +21,26 @@ const CardGrid: React.FC = () => {
   const isAllCardsFound = cardsArray.every((card) => card.found);
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const resetTurn = () => {
+  const resetTurn = useCallback(() => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns((prevTurns) => prevTurns + 1);
-  };
+  }, [setChoiceOne, setChoiceTwo, setTurns]);
 
-  const resetGame = () => {
+  const resetGame = useCallback(() => {
     setCardsArray([...shuffledCards]);
     setShowModal(false);
     setTurns(0);
     setChoiceOne(null);
     setChoiceTwo(null);
-  };
+  }, [
+    setCardsArray,
+    setShowModal,
+    setTurns,
+    setChoiceOne,
+    setChoiceTwo,
+    shuffledCards,
+  ]);
 
   useEffect(() => {
     if (choiceOne !== null && choiceTwo !== null) {
