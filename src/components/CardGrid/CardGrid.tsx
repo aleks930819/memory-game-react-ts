@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styles from './CardGrid.module.css';
 
-import Card from '../Card/Card';
-import cards from '../../data';
-import { useState, useEffect } from 'react';
 import { CardInterface } from '../../shared/interfaces';
+
+import cards from '../../data';
+
+import Card from '../Card/Card';
 import CardFooter from '../CardFooter/CardFooter';
+import Modal from '../Modal/Modal';
 
 const CardGrid: React.FC = () => {
   const shuffledCards = cards.sort(() => Math.random() - 0.5);
@@ -16,11 +18,21 @@ const CardGrid: React.FC = () => {
   const [turns, setTurns] = useState<number>(0);
   const [choiceOne, setChoiceOne] = useState<string | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<string | null>(null);
+  const isAllCardsFound = cardsArray.every((card) => card.found);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const resetTurn = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns((prevTurns) => prevTurns + 1);
+  };
+
+  const resetGame = () => {
+    setCardsArray([...shuffledCards]);
+    setShowModal(false);
+    setTurns(0);
+    setChoiceOne(null);
+    setChoiceTwo(null);
   };
 
   useEffect(() => {
@@ -41,6 +53,10 @@ const CardGrid: React.FC = () => {
     }
   }, [choiceOne, choiceTwo, cardsArray]);
 
+  useEffect(() => {
+    isAllCardsFound ? setShowModal(true) : setShowModal(false);
+  }, [setShowModal, isAllCardsFound]);
+
   const handleChoice = (name: string) => {
     if (!choiceOne) {
       setChoiceOne(name);
@@ -51,7 +67,7 @@ const CardGrid: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      {cardsArray.map((card, index) => (
+      {cardsArray.map((card) => (
         <Card
           key={card.id}
           card={card}
@@ -61,6 +77,7 @@ const CardGrid: React.FC = () => {
         />
       ))}
       <CardFooter turns={turns} />
+      {showModal && <Modal turns={turns} resetGame={resetGame} />}
     </div>
   );
 };
