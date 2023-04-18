@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, ReactElement, useEffect, useState } from 'react';
 
 import styles from './Card.module.css';
 
@@ -12,12 +12,12 @@ interface CardProps {
   choiceTwo: string | null;
 }
 
-const Card: React.FC<CardProps> = ({
+const Card: FC<CardProps> = ({
   card,
   handleChoice,
   choiceOne,
   choiceTwo,
-}) => {
+}): ReactElement => {
   const { name, image, found } = card;
   const [isClicked, setIsClicked] = useState<boolean>(false);
 

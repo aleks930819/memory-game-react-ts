@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, {
+  FC,
+  ReactElement,
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 
 import styles from './CardGrid.module.css';
 
@@ -10,7 +16,7 @@ import Card from '../Card/Card';
 import Modal from '../Modal/Modal';
 import Turns from '../Turns/Turns';
 
-const CardGrid: React.FC = () => {
+const CardGrid: FC = (): ReactElement => {
   const shuffledCards = cards.sort(() => Math.random() - 0.5);
   const [cardsArray, setCardsArray] = useState<CardInterface[]>([
     ...shuffledCards,

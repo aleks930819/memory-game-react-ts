@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC, ReactElement } from 'react';
 
 import styles from './Header.module.css';
 
-const Header: React.FC = () => {
+const Header: FC = (): ReactElement => {
   return (
     <header className={styles.header}>
       <h1>Marvel Heroes Memory Game</h1>
